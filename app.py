@@ -208,4 +208,4 @@ def save_interview_summary(interview_summary, bot_questions, user_answers):
             file.write(f"\nBot Question: {bot_q['question']}\nUser Answer: {user_a}\n")
 
 if __name__ == "__main__":
-    app.run(debug=False,host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0')
