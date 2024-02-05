@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Completed</title>
+</head>
+<body>
+    <h1>Interview Completed</h1>
+
+    <div>
+        <p>Thank you for completing the interview! Below is a summary of your responses:</p>
+        <ul>
+            {% for question_index, answer_data in user_answers.items() %}
+                <li>
+                    <strong>{{ answer_data.question }}</strong><br>
+                    User Answer: {{ answer_data.answer }}<br>
+                    Score: {{ answer_data.score }}%
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <p>Feel free to contact us if you have any further questions or concerns.</p>
+</body>
+</html>

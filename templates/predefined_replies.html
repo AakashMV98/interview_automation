@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Predefined Replies</title>
+  <!-- Include the styles from your main CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+
+<body>
+  <section class="msger">
+    <main class="msger-chat">
+      <!-- Display the predefined replies -->
+      <div class="msg left-msg">
+        <div class="msg-bubble">
+          <div class="msg-text">Interview Rules</div>
+        </div>
+      </div>
+      <div class="msg left-msg">
+        <div class="msg-bubble">
+          <div class="msg-text">Let's start the Interview</div>
+        </div>
+      </div>
+      <div class="msg left-msg">
+        <div class="msg-bubble">
+          <div class="msg-text">About the company</div>
+        </div>
+      </div>
+      <div class="msg left-msg">
+        <div class="msg-bubble">
+          <div class="msg-text">Contact details</div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script>
+    // Modify the JavaScript to handle predefined replies
+    $(document).ready(function () {
+      $(".msger-chat").on("click", ".msg-text", function () {
+        const selectedReply = $(this).text();
+        // Send the selected reply to the server
+        $.get("/get", { msg: selectedReply }).done(function (data) {
+          console.log(selectedReply);
+          console.log(data);
+          const msgText = data;
+          appendMessage(PERSON_NAME, PERSON_IMG, "right", selectedReply);
+          appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
